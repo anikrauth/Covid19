@@ -1,0 +1,35 @@
+.main_div {
+  display: flex;
+  max-height: 5em;
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+}
+
+.titel_div {
+  font-size: 1.2em;
+  font-weight: 100;
+  width: 95%;
+  text-align: center;
+}
+
+.titel_div h3 {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #707070;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8%;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 5px;
+}
+
+.icon img {
+  width: 60%;
+  object-fit: cover;
+}
