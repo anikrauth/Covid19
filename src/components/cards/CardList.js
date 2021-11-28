@@ -7,14 +7,12 @@ import CustomSwiper from '../layout/CustomSwiper';
 
 
 
-
-
 const DUMMY_DATA = [
     {
         id: 60,
         first_name: 'Alvaro',
         last_name: 'Rodriguez',
-        created: '2021-11-27 13:25'
+        created: '2021-11-28 16:33'
     },
     {
         id: 61,
@@ -47,6 +45,8 @@ const DUMMY_DATA = [
         created: '2021-11-17 14:23'
     }
 ]
+
+
 
 
 function CardList(props) {

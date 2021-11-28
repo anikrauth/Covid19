@@ -5,6 +5,7 @@ import Timer from './Timer';
 import classes from './CardTest.module.css';
 import axios from 'axios';
 
+const  baseURL = "http://shinycar24.de/data-tb/api.php?sId=A786b.a23w&locationId=1";
 
 
 function CardTest(props) {
@@ -12,9 +13,12 @@ function CardTest(props) {
     const [timerStyle, setTimerStyle] = useState('time');
     const [cardStyle, setCardStyle] = useState(classes.card);
 
-
+    
 
     function timesOverHandler(timeOver) {
+
+
+
         if (timeOver) {
             setTimerStyle('timeOver');
             setCardStyle(classes.card_timeOver)
@@ -28,26 +32,25 @@ function CardTest(props) {
     function onClickHandler() { }
 
 
-    useEffect(() => {     getAllData();}, []);
+    let [people, setPeople] = React.useState(null);
 
-    const [persons, getPersons] = useState('');
-    // API call
-    const  url = "http://shinycar24.de/data-tb/api.php";
+    React.useEffect(() => {
+        axios.get(baseURL).then((response) => {
+            setPeople(response.data);
+        });
+      }, []);
+    
+      if (!people) return "Nothing Found";
 
-    const getAllData = () => {
-        axios.get(`${url}?sId=A786b.a23w&locationId=1`)
-        .then((response) => {
-
-            const covidCard = response.data.persons.getAllData;
-
-        })
-        .catch(error => this.setState({ loading: false, error: error.response.data }));
-    }
-
-    console.log(getAllData);
-
+    //convert into JSON format
+    let peopleJSON = JSON.parse(people);
+    console.log(typeof(peopleJSON));
+    
+    // end api 
+      
 
     return (
+        
         <div className={cardStyle}>
             <div className={classes.id}>
                 <p>{props.id}</p>
